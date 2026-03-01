@@ -1,407 +1,453 @@
-# **NEON GRAVE: LAST STAND**
-### 2D Top-Down Horde Shooter (Python) — Full Product Plan
+# **BONKLORE: OUTBREAK**
+### Top-Down Chaos Survival (Python) — Complete Product Plan v2
 
 ---
 
-## 0) One-Line Pitch (storefront hook)
-**A brutal, stylish top-down survival shooter where every run is a build-crafting power trip: survive the city, break the horde, and become a one-person apocalypse.**
-
-## 1) Vision + Success Criteria
-
-## Vision
-Make a **Dead Ops Arcade-inspired** top-down shooter that is:
-- Fast and satisfying in the first 60 seconds
-- Visually "premium indie" despite using curated online assets
-- Deep enough to keep players engaged for 8+ hours
-- Scoped realistically for a solo dev build in Python
-
-## Success Criteria (MVP-to-Launch)
-- 10 minutes after install: player says "this feels good"
-- 2 hours: player has multiple viable builds discovered
-- 8 hours: player has unlocked higher difficulties + meta progression
-- Steam reviews praise: **feel, readability, replayability, juice**
+## 0) New Direction (Locked)
+You asked for **"Mega Bonk but top down"** with **Muck-style energy**.
+This version is now built around:
+- Chaotic, funny, high-impact combat (BONK identity)
+- Survival progression with escalating danger (Muck-style pressure)
+- Coherent art + polish so it still looks Steam-sellable
+- Scoped for a Python 2D build that can actually ship
 
 ---
 
-## 2) Core Design Pillars (non-negotiable)
-1. **Juicy Combat Feel** — recoil, flash, impact, sound layering, screenshake
-2. **Readable Chaos** — no visual clutter; clear threat silhouettes/colors
-3. **Build Discovery** — each run feels different via upgrades + weapon synergies
-4. **Short Sessions, Long Progress** — 20–35 min runs + persistent unlocks
-5. **Low Scope, High Polish** — fewer systems, finished better
+## 1) Store Hook (first impression)
+**BONKLORE: OUTBREAK is a top-down chaos survival game where you scavenge by day, survive escalating night swarms, and stack ridiculous BONK-tier builds until you become an unstoppable meme machine.**
+
+Short tagline options:
+- **"Scavenge. Craft. BONK. Survive the Night."**
+- **"Muck energy. Top-down chaos. Pure BONK."**
 
 ---
 
-## 3) Player Experience (from app click to ~8 hours)
+## 2) Name Exploration (stronger alternatives)
+Primary pick: **BONKLORE: OUTBREAK**
 
-## 0:00–0:03 (First Launch)
-- Splash logo → title scene with animated rain/fog/neon signage
-- Music: low gritty synth/hip-hop pulse
-- Menu options: **Play / Upgrades / Arsenal / Settings / Quit**
-- First-time tooltip: "Twin-stick or WASD + mouse. Survive. Extract. Upgrade."
+Why this works:
+- "BONK" = instant tone/personality
+- "LORE" adds world identity (not just meme)
+- "OUTBREAK" gives stakes + zombie/survival framing
 
-## 0:03–0:10 (First Run)
-- Intro map: "District 7"
-- Player starts with pistol + one tactical (frag)
-- First enemies spawn in light waves to teach movement + aim
-- 2-minute mark: first elite appears (teaches priority targeting)
-- 5-minute mark: mini-boss + first "big win" loot chest
-- Win/lose screen always rewards account XP and scrap currency
-
-## 0:10–1:00 (Early Retention)
-- Player unlocks 2nd weapon, first passive tree nodes, maybe first class trait
-- Encounters first build-defining upgrade cards
-- Learns loop: **run → earn scrap → unlock gear/perks → stronger/funner next run**
-
-## 1:00–3:00 (Depth Phase)
-- Multiple guns unlocked
-- Discovers synergies (e.g., bleed + crit + chain lightning rounds)
-- Sees map/event variety (blackout event, toxic fog, turret convoy)
-- Starts aiming for specific builds
-
-## 3:00–8:00 (Mastery + “Beat the Game”)
-- Beats Normal campaign chain (3 zones + final boss)
-- Unlocks Veteran difficulty
-- Unlocks at least one high-tier class + ultimate weapon mod
-- Feels there’s still reason to continue (challenge modifiers + leaderboard score chase)
-
-**Definition of "beat" at ~8 hours:**
-- Finish final boss on Normal
-- Unlock Veteran
-- Complete at least 1 run with a specialized build archetype
+If we want backups:
+1. **BONKLINE: ZERO NIGHT**
+2. **Project BONKFALL**
+3. **NIGHT OF THE BONK**
+4. **BONK DISTRICT**
+5. **Muck n’ Mayhem: Overhead**
 
 ---
 
-## 4) Genre/Camera/Movement Spec
-- **Genre:** Top-down horde shooter / arcade roguelite
-- **Camera:** fixed overhead, slight fake depth via shadows and vertical offsets
-- **Controls:**
-  - KBM: WASD move, mouse aim, LMB fire, RMB tactical/alt, Space dash
-  - Controller (phase 2): left stick move, right stick aim
-- **Session length:** 20–35 min
+## 3) Product Vision
+Build a game that feels:
+- **Immediately fun** in first 30 seconds
+- **Visually punchy** despite mixed asset sources
+- **Replayable for 8+ hours** through randomization + unlocks
+- **Content-rich enough for Steam value** while staying scoped
+
+### Success goals
+- 1st session avg: 30+ mins
+- "One more run" compulsion from day/night loop
+- At least 4 viable build styles
+- Players clearly understand progression and unlock goals
 
 ---
 
-## 5) Core Gameplay Loop
-
-### In-Run Loop (moment-to-moment)
-Move → aim → shoot → dodge → collect XP/scrap drops → pick upgrades every level-up → survive events → kill boss → extract/continue.
-
-### Meta Loop (between runs)
-Spend scrap in:
-- **Arsenal** (weapon unlocks/mod tiers)
-- **Operative Upgrades** (account-wide stat tweaks)
-- **Class unlocks** (playstyle changes)
-- **Cosmetics** (late)
+## 4) Core Pillars (non-negotiable)
+1. **BONK Feel** — chunky hitstop, knockback, screen shake, comic-level impact
+2. **Readable Chaos** — danger clear even during swarms
+3. **Day/Night Tension** — gather by day, panic at night
+4. **Build Crafting** — wild synergies and goofy power spikes
+5. **Replay Value** — random events, mutators, permanent unlocks
 
 ---
 
-## 6) Content Plan (what exists at launch)
+## 5) High-Level Game Loop (Muck-inspired, top-down)
 
-## Playable Characters / Classes (3)
-1. **Striker** — balanced, recoil control bonus
-2. **Ghost** — mobility, crit/weakpoint style
-3. **Bulwark** — tanky, explosive resistance, heavy weapon bonus
+### Day Phase (Scavenge & Prep)
+- Break crates/objects, gather resources
+- Loot POIs (stores, alleys, police station, subway rooms)
+- Craft ammo/meds/traps
+- Buy/upgrade gear at temporary vendor drone
 
-## Weapons (12 total)
-### Starter (4)
-- 9mm Pistol
-- SMG-9
-- Pump Shotgun
-- Burst Rifle
+### Night Phase (Survive)
+- Horde timer starts
+- Enemies scale by current Threat Level
+- Defend yourself while rotating for pickups
+- Survive to dawn for bonus rewards
 
-### Mid-tier unlocks (5)
+### Progression Phase (Between Days)
+- Choose 1 of 3 upgrade cards
+- Spend scrap on permanent account upgrades
+- Decide risk: extract now or push another day for bigger rewards
+
+This gives short-term thrill + long-term grind incentive.
+
+---
+
+## 6) Player Journey (0h → 8h)
+
+## 0:00–0:05 (Install to Menu)
+- Animated title with neon grime + thunder
+- Menu: Play / Operatives / Workshop / Upgrades / Settings
+- Tooltips: "Gather by day. Survive by night. Extract before greed kills you."
+
+## 0:05–0:25 (First Run)
+- Tutorialized first day: movement, melee bonk, basic gun, scavenging
+- First night introduces simple horde + one elite
+- Dawn gives card choice + dopamine reward screen
+- Player loses or extracts but keeps progression currency
+
+## 0:25–2:00 (Retention Band)
+- Unlocks: new weapon category + first class perk
+- Learns to route map efficiently before nightfall
+- Starts seeing build identity (melee stun build, crit SMG build, burn DOT build)
+
+## 2:00–5:00 (Depth Band)
+- Encounters map events, mini-boss nights, cursed modifiers
+- Understands risk-reward extraction loop
+- Begins aiming for specific synergies intentionally
+
+## 5:00–8:00 (Mastery + First "Beat")
+- Clears Region 1 campaign chain
+- Defeats first major boss sequence
+- Unlocks Veteran mode + first challenge mutator set
+- Has 2-3 favorite builds, wants to replay for mastery
+
+**"Beat in ~8h" definition:**
+- Finish base campaign route on Normal
+- Defeat final Region 1 boss
+- Unlock next difficulty and at least one advanced class
+
+---
+
+## 7) Gameplay Systems (complete feature list)
+
+## 7.1 Combat
+- Twin-stick style shooting + directional melee bonk
+- Dodge dash with i-frames
+- Weapon recoil, spread, reload timing
+- Melee slam for crowd control
+- Status effects: burn, shock, bleed, slow
+
+## 7.2 Survival
+- Health/armor/stamina
+- Ammo economy + crafting
+- Consumables: med spray, stim, EMP canister, fire bottle
+
+## 7.3 Build System
+- Level-up card draft (3 choices)
+- Rarity tiers (common/rare/epic/legendary)
+- Synergy tags (BONK, Crit, Toxic, Explosive, Mobility)
+- Reroll tokens (limited)
+
+## 7.4 Meta Progression
+- Account XP
+- Scrap currency
+- Permanent unlock trees:
+  - Operative stats
+  - Weapon access
+  - Utility slots
+  - Starting bonuses
+
+## 7.5 Extraction & Risk
+- Player may extract after each night
+- Staying gives better rewards but harder nights
+- This creates tension and replay loops
+
+---
+
+## 8) Content Scope (launch)
+
+## 8.1 Classes (4)
+1. **Street Bruiser** — melee BONK specialist, stun bonuses
+2. **Runner** — mobility, dash reset potential
+3. **Gunner** — recoil control, ammo efficiency
+4. **Techrat** — traps/turrets, utility scaling
+
+## 8.2 Weapons (14)
+### Melee (4)
+- Pipe Bat
+- Shock Hammer
+- Chain Mace
+- Sawblade Pole
+
+### Guns (10)
+- Pistol
+- SMG
+- Shotgun
+- Burst AR
 - LMG
 - DMR
-- Dual Machine Pistols
+- Revolver
 - Auto Shotgun
-- Carbine
+- Arc Rifle
+- Grenade Launcher
 
-### High-tier (3)
-- Arc Cannon
-- Rail Rifle
-- Incendiary Minigun (limited ammo pickups)
-
-## Enemy Roster (10)
-- Basic Walker
+## 8.3 Enemies (12)
+- Shambler
 - Runner
 - Spitter
-- Armored Brute
 - Bomber
+- Shielded
 - Leaper
-- Shield Carrier
-- Summoner
-- Elite Stalker
-- Zone Boss variants
+- Siren Caller
+- Burrower
+- Brute
+- Shock Unit
+- Elite Hunter
+- Summoner Captain
 
-## Bosses (4)
-- District Warden
-- Tunnel Colossus
-- Siren Engine
-- Final: The Gravecore
+## 8.4 Bosses (3 + final)
+1. **The Wrecking Choir**
+2. **Blacksite Tank**
+3. **Neon Maw**
+4. **Final: The BONK Engine**
 
-## Maps/Zones (3 main + 1 final)
-1. **District 7 Streets** (neon urban)
-2. **Metro Catacombs** (tight corridors + ambush)
-3. **Blacksite Yard** (open lanes + hazards)
-4. **Gravecore Reactor** (final multi-phase arena)
-
----
-
-## 7) Replayability Systems
-1. **Roguelite upgrade draft** each level-up (3 random cards)
-2. **Weapon mod rolls** per run (e.g., toxic rounds / ricochet / overpressure)
-3. **Challenge mutators** after first clear:
-   - glass cannon
-   - night mode
-   - elite swarms
-   - no healing drops
-4. **Difficulty tiers** (Recruit / Normal / Veteran / Nightmare)
-5. **Meta unlocks** and long-tail progression
-6. **Score/challenge contracts** for mastery play
+## 8.5 Regions/Maps (3)
+1. **Neon Slums** (open + alleys)
+2. **Flooded Transit** (tight lanes + hazards)
+3. **Industrial Graveyard** (mixed arenas)
 
 ---
 
-## 8) “Fun Assurance” Framework (how we ensure it’s fun)
-
-## A. Feel Checklist (must pass)
-- Time-to-first-kill < 10 sec
-- Gunfire audio punch layered (shot + mechanical + impact)
-- Visible hit confirmation every bullet
-- Dash has invuln frames and clear SFX/VFX
-- Elite enemy telegraphs readable under chaos
-
-## B. Playtest Cadence
-- 20-minute internal test after each mechanic merge
-- Weekly "fresh player" test with 3 people
-- Track: deaths, quit points, confusion points, favorite moments
-
-## C. Metrics Targets
-- D1 session avg > 25 min
-- >70% players complete first boss after 2 attempts
-- At least 3 distinct viable builds on Normal
-
-## D. Boredom Killers
-- New event every ~90 sec
-- Upgrade decisions every 45–75 sec
-- No dead periods > 20 sec
+## 9) Replayability Plan (why players come back)
+1. Randomized loot + card drafts
+2. Night mutators (fog, no healing, elite storm, low light)
+3. Risk extraction choice each cycle
+4. Class-weapon synergy experimentation
+5. Difficulty tiers (Recruit / Normal / Veteran / Insane)
+6. Contracts/challenges with unlock rewards
+7. Run stats + scoreboard for self-improvement
 
 ---
 
-## 9) Art Direction (make mixed assets look premium)
+## 10) Fun Validation System (how we guarantee fun)
 
-## Style Lock
-- Base tone: dark asphalt/steel/charcoal
-- Accent palette: neon cyan, hazard orange, toxic lime, blood red
-- Lighting feel: night city + hard muzzle flash
-- Texture detail medium; silhouettes clean
+## 10.1 Combat Feel Checklist (must pass)
+- First kill within 8 seconds
+- Every hit has feedback (flash + sound + micro freeze)
+- Melee BONK feels stronger than gun impact visually
+- Dash always feels responsive under pressure
 
-## Visual Rules
-- Enemies must read by silhouette first, color second
-- Bullets/projectiles high contrast always
-- Player outlined subtly for readability
-- Every entity has grounded shadow
+## 10.2 Playtest Routine
+- Daily 15-minute combat session internally
+- Weekly fresh-player tests (3+ players)
+- Record exact "fun spikes" and "boring dips"
 
-## Unification Pass (critical)
-All downloaded assets go through:
-1. Palette normalization
+## 10.3 Metrics Targets
+- 70%+ survive first night after second attempt
+- 60%+ choose "one more day" at least once
+- 3+ successful build archetypes on Normal
+
+## 10.4 Boredom Prevention Rules
+- No empty segment > 20s
+- Major decision every 60–90s
+- New event cadence every 2–3 minutes
+
+---
+
+## 11) Visual Plan (make online assets look cohesive)
+
+## 11.1 Art Direction
+- Base palette: asphalt black, steel gray, deep navy
+- Accent palette: neon cyan, toxic green, warning amber, blood red
+- Tone: gritty arcade + stylized impacts
+
+## 11.2 "BONK Aesthetic" Rules
+- Slightly exaggerated enemy reactions
+- Thick hit VFX + comic-level motion bursts
+- Strong silhouette readability
+- Ground shadows for all units
+
+## 11.3 Asset Unification Pipeline
+Every imported sprite goes through:
+1. Palette remap
 2. Contrast normalization
-3. Edge cleanup + outline policy
-4. Shared VFX overlays
-5. Final LUT/post-process pass
+3. Optional outline standard
+4. Shared light/shadow treatment
+5. FX overlay compatibility pass
+
+This makes mixed packs feel like one game.
 
 ---
 
-## 10) Asset Sourcing Plan (online assets + licensing)
+## 12) Asset Sourcing + License Plan
 
-## Sources
-- Kenney (base props/UI)
-- itch.io paid packs (characters/enemies/tiles)
-- OpenGameArt (supplemental, license-vetted)
-- Freesound/Zapsplat (SFX, licensed)
-- Incompetech or custom loops (temporary music until custom OST)
+## Approved Sources
+- Kenney (UI and props)
+- itch.io packs (paid recommended)
+- OpenGameArt (license-vetted only)
+- Freesound / Zapsplat (SFX per license)
 
-## Licensing Process (mandatory)
-- Every asset recorded in `/docs/ASSET_REGISTER.md`
-- Fields: source URL, author, license, proof screenshot/date
-- Only commercial-use-compatible assets
-- If ambiguous license: reject asset
+## Mandatory Compliance
+Maintain `/docs/ASSET_REGISTER.md` with:
+- Asset name
+- Source link
+- Author
+- License type
+- Commercial-use confirmation
+- Date acquired
 
-## Asset Buckets Needed
-- Characters: 1 player base + 10 enemy spritesheets
-- Weapons: top-down weapon sprites + muzzle + shell FX
-- Environment: tilesets for 3 zones + props + decals
-- FX: explosions, sparks, blood pops, smoke, electricity
-- UI: minimalist sci-fi HUD pack + icon set
-- Audio: 100+ SFX events, 6 music tracks (loopable)
+No unclear license = no usage.
+
+## Asset Buckets
+- Character spritesheets (player + enemies)
+- Tilesets + props + decals
+- VFX sheets (sparks, smoke, blood, shock)
+- UI icon pack + HUD parts
+- Music loops (6 tracks minimum)
+- SFX library (120+ events)
 
 ---
 
-## 11) Technical Plan (Python)
+## 13) Technical Build Plan (Python)
 
-## Engine Choice
-- **pygame-ce** for compatibility and community support
+## Engine
+- **pygame-ce**
 
-## Architecture
-- `core/` game loop, state machine, config
-- `entities/` player, enemy, projectile, pickups
-- `systems/` combat, AI, spawn, loot, upgrades, collisions
-- `content/` data-driven JSON (weapons/enemies/cards/maps)
-- `ui/` hud, menus, tooltips, results
-- `assets/` organized by type with manifest
-- `save/` profile progression + settings
+## Project Structure
+- `src/core` loop, states, config
+- `src/entities` player, enemies, pickups, projectiles
+- `src/systems` AI, combat, spawn, day-night, upgrades, loot
+- `src/content` JSON data (weapons/cards/enemies/events)
+- `src/ui` menus/HUD/results/tooltips
+- `assets/` art/audio/fonts
+- `docs/` design + asset register
+- `save/` profile/settings/meta progression
 
-## Key Libraries
+## Dependencies
 - pygame-ce
-- pytmx (if tiled maps)
-- numpy (optional perf/math)
+- pytmx (if using Tiled)
+- numpy (optional)
 - pyinstaller (build)
 
 ## Performance Targets
-- 60 FPS target on mid-range PC
-- Cap active enemies/projectiles with LOD logic
-- Object pooling for bullets + FX
+- 60 FPS stable on mid-tier PC
+- Enemy and projectile pooling
+- Spawn caps + LOD behavior simplification
 
 ---
 
-## 12) UX & UI Flow
+## 14) UX Flow (player-facing)
+
+## Startup
+- Splash → title → profile load
 
 ## Main Menu
-- Big CTA: PLAY
-- Quick loadout display
-- Daily contract teaser
+- Play
+- Operatives
+- Workshop (crafting/loadout)
+- Upgrades
+- Settings
 
-## In-Game HUD
-- HP/Armor bars
-- Ammo + reload cue
-- Dash cooldown
-- Mini objective/event banner
-- XP bar and level-up flash
+## In-Run HUD
+- HP/armor/stamina
+- Ammo/reload
+- Day/Night timer
+- Threat meter
+- XP bar
+- Current objectives/event cue
 
-## Level-up Screen
-- 3 cards + reroll token (limited)
-- Clear rarity colors + short tooltips
+## End-of-Night Screen
+- Survival summary
+- Loot + XP gain
+- Upgrade card pick
+- Extract or continue
 
-## Run End Screen
-- Kills, time, accuracy, boss kills, scrap earned
-- Buttons: Retry / Return to Hub
-
-## Hub Screens
-- Arsenal (guns + mods)
-- Upgrades (meta tree)
-- Operatives (class select)
-- Records (stats)
-
----
-
-## 13) Audio Plan
-- Combat SFX layers per gun to avoid weak feel
-- Enemy vocal cues per type (stalker hiss, bomber beep)
-- Music intensity ramps with threat level
-- Subtle reverb/LPF in tunnels map
-- Master bus ducking for important cues (boss telegraphs)
+## Death/Extraction Screen
+- Build recap
+- Longest streak/day reached
+- Unlock progress
+- Quick retry
 
 ---
 
-## 14) Balance Plan
-
-## Early Game
-- Low enemy HP, frequent ammo drops
-- Teaches confidence
-
-## Mid Game
-- Mixed packs + elite pressure + route decisions
-
-## Late Game
-- Arena modifiers + boss mechanics + resource tension
-
-## Build Archetypes (must all win Normal)
-- Crit burst
-- DOT/status spread
-- Tank/explosive bruiser
-- Mobility glass cannon
+## 15) Audio Direction
+- Heavy impact SFX for BONK identity
+- Layered gun sounds (shot/mech/impact/tail)
+- Adaptive music intensity by threat level
+- Distinct enemy audio cues
+- Boss warning stingers
 
 ---
 
-## 15) Production Roadmap
+## 16) Content Production Roadmap
 
-## Phase 1 — Vertical Slice (2–3 weeks)
-- One map, 3 enemy types, 2 weapons, 1 boss
-- Full feel polish baseline
+## Phase A — Vertical Slice (Week 1–2)
+- One region chunk
+- 2 classes
+- 4 weapons
+- 4 enemy types
+- Day/night + extraction working
+- Must feel fun already
 
-## Phase 2 — Core Content (4–6 weeks)
-- Expand weapons/enemies/upgrades
-- Add 2nd and 3rd maps
+## Phase B — Core Expansion (Week 3–6)
+- Full class/weapon baseline
+- More enemy variants + mini-boss
+- Upgrade card system depth
 - Meta progression v1
 
-## Phase 3 — Replay Layer (2–3 weeks)
-- Difficulty tiers, mutators, contracts
-- Unlock economy tuning
+## Phase C — Replay Layer (Week 7–8)
+- Mutators + contracts
+- Difficulty tiers
+- Economy tuning
 
-## Phase 4 — Steam Prep (2 weeks)
-- QA pass, controller support (if included)
-- Trailer capture, capsule art, store copy
-- Build/depot pipeline + achievements
-
----
-
-## 16) Steam Commercial Plan
-
-## Positioning
-"Dead Ops energy + modern indie polish + buildcraft replayability"
-
-## Price
-- Launch: **$7.99–$9.99**
-- 10% launch discount for first week
-
-## Conversion Drivers
-- Crisp GIF-ready combat moments
-- Strong trailer first 5 seconds (muzzle chaos + boss reveal)
-- Clear feature bullets (classes, builds, mutators, bosses)
-
-## Store Page Must-Haves
-- 1 short hook trailer (45–60s)
-- 8–12 screenshots with readable action
-- “Why replay” section explicit
+## Phase D — Steam Prep (Week 9–10)
+- QA, bugfix, balance polish
+- Trailer + screenshots + capsule art
+- Steam build pipeline, achievements, page copy
 
 ---
 
-## 17) Risk Register + Mitigation
-1. **Scope creep** → content freeze gate before launch
-2. **Asset mismatch** → strict style lock + unification pipeline
-3. **Combat feels weak** → prioritize juice early, weekly feel tests
-4. **Performance dips** → pooling/caps/profiling in Phase 1
-5. **Legal/license issues** → asset register mandatory from day 1
+## 17) Steam Sell Plan
+
+## Positioning Statement
+"Top-down Muck-style survival chaos with BONK combat feel and deep build replayability."
+
+## Price Strategy
+- Launch price: **$8.99**
+- Launch week discount: 10%
+
+## Conversion Must-Haves
+- Trailer opens with chaos + boss reveal in first 5 seconds
+- GIF-ready clips: BONK slam, near-death clutch, huge chain kill
+- Store bullets focused on replayability and day/night tension
 
 ---
 
-## 18) Definition of Done (Launch)
-- Complete Normal campaign (3 zones + final)
-- 3 classes, 12 weapons, 10 enemies, 4 bosses
-- 40+ upgrade cards
-- 3+ viable build archetypes
-- Stable Steam build, save system, settings, credits/licenses
-- Trailer, store assets, launch checklist done
+## 18) Risks + Mitigation
+1. Scope too large → lock content caps now
+2. Asset mismatch → strict unification process
+3. Combat not satisfying → feel-first playtests every week
+4. Performance drops in swarms → pooling, caps, profiler gates
+5. Licensing mistakes → ASSET_REGISTER required from day 1
 
 ---
 
-## 19) Immediate Next Execution Steps (no planning debt)
-1. Create repo structure and starter `pygame-ce` app shell
-2. Implement player movement/aim/shoot + one enemy + hit feedback
-3. Build style prototype scene with chosen palette
-4. Draft `ASSET_REGISTER.md` and collect first legal asset pack set
-5. Produce first playable in 72 hours
+## 19) Definition of Done (v1 launch)
+- Complete Normal progression route
+- 4 classes, 14 weapons, 12 enemies, 4 bosses
+- Day/night + extraction loop polished
+- 50+ upgrade cards
+- 4+ viable builds
+- Steam-ready executable + settings/save + legal credits
 
 ---
 
-## 20) Project Naming Alternatives (if needed)
-- Neon Grave: Last Stand (primary)
-- Blacklight Outbreak
-- Dead District Zero
-- Nightfall Protocol
-- Hollow City: Extraction
+## 20) Immediate Next Steps (execution now)
+1. Rename this plan file later to `BONKLORE_OUTBREAK_PLAN.md` (optional)
+2. Create project skeleton in repo (`src/`, `assets/`, `docs/`)
+3. Build playable prototype:
+   - movement
+   - aim/shoot
+   - melee bonk
+   - one day/night cycle
+4. Start `docs/ASSET_REGISTER.md`
+5. Add first curated asset pack set and style-pass test scene
 
 ---
 
-## Final Call
-This plan is intentionally built to be **sellable, scoped, and fun-first**. We are not making a giant dream game first — we’re making a **tight banger** that plays hard, looks clean, and can actually ship on Steam.
+## Final Note
+This is now a complete, thought-through production plan for a **top-down BONK + Muck-style** game with real replayability and a clear Steam route. No vague "we’ll plan later" gaps left in core direction.
