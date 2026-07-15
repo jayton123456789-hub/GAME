@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "no_upgrades": {
+    "policy": "ideal slope-following; no upgrades purchased",
+    "milestones": {"gate_1": 3, "gate_2": 6, "gate_3": 9, "gate_4": 13},
+    "boss_defeated_attempt": 13,
+    "attempts": [
+      {"attempt":1,"distance_m":134,"gates_broken":0,"boss_armor":3600,"gold":120,"skills":[],"world_complete":false},
+      {"attempt":2,"distance_m":129,"gates_broken":0,"boss_armor":3600,"gold":240,"skills":[],"world_complete":false},
+      {"attempt":3,"distance_m":346,"gates_broken":1,"boss_armor":3600,"gold":504,"skills":[],"world_complete":false},
+      {"attempt":4,"distance_m":337,"gates_broken":1,"boss_armor":3600,"gold":768,"skills":[],"world_complete":false},
+      {"attempt":5,"distance_m":340,"gates_broken":1,"boss_armor":3600,"gold":1032,"skills":[],"world_complete":false},
+      {"attempt":6,"distance_m":520,"gates_broken":2,"boss_armor":3600,"gold":1461,"skills":[],"world_complete":false},
+      {"attempt":7,"distance_m":519,"gates_broken":2,"boss_armor":3600,"gold":1876,"skills":[],"world_complete":false},
+      {"attempt":8,"distance_m":501,"gates_broken":2,"boss_armor":3600,"gold":2284,"skills":[],"world_complete":false},
+      {"attempt":9,"distance_m":648,"gates_broken":3,"boss_armor":3600,"gold":2860,"skills":[],"world_complete":false},
+      {"attempt":10,"distance_m":680,"gates_broken":3,"boss_armor":3600,"gold":3422,"skills":[],"world_complete":false},
+      {"attempt":11,"distance_m":659,"gates_broken":3,"boss_armor":3600,"gold":3998,"skills":[],"world_complete":false},
+      {"attempt":12,"distance_m":646,"gates_broken":3,"boss_armor":3600,"gold":4539,"skills":[],"world_complete":false},
+      {"attempt":13,"distance_m":1887,"gates_broken":4,"boss_armor":0,"gold":4539,"skills":[],"world_complete":true}
+    ]
+  },
+  "upgrade_path": {
+    "policy": "ideal slope-following; one prioritized upgrade purchased after each run",
+    "milestones": {"gate_1": 3, "gate_2": 5, "gate_3": 7, "gate_4": 9},
+    "boss_defeated_attempt": 9,
+    "attempts": [
+      {"attempt":1,"distance_m":133,"gates_broken":0,"boss_armor":3600,"gold":0,"skills":["launchForce"],"world_complete":false},
+      {"attempt":2,"distance_m":133,"gates_broken":0,"boss_armor":3600,"gold":120,"skills":["launchForce"],"world_complete":false},
+      {"attempt":3,"distance_m":334,"gates_broken":1,"boss_armor":3600,"gold":268,"skills":["launchForce","impact"],"world_complete":false},
+      {"attempt":4,"distance_m":347,"gates_broken":1,"boss_armor":3600,"gold":286,"skills":["launchForce","impact","retention"],"world_complete":false},
+      {"attempt":5,"distance_m":485,"gates_broken":2,"boss_armor":3600,"gold":452,"skills":["launchForce","impact","retention","gatePen"],"world_complete":false},
+      {"attempt":6,"distance_m":485,"gates_broken":2,"boss_armor":3600,"gold":414,"skills":["launchForce","impact","retention","gatePen","perfectBoost"],"world_complete":false},
+      {"attempt":7,"distance_m":622,"gates_broken":3,"boss_armor":3600,"gold":490,"skills":["launchForce","impact","retention","gatePen","perfectBoost","comboDamage"],"world_complete":false},
+      {"attempt":8,"distance_m":630,"gates_broken":3,"boss_armor":3600,"gold":343,"skills":["launchForce","impact","retention","gatePen","perfectBoost","comboDamage","speedCap"],"world_complete":false},
+      {"attempt":9,"distance_m":2806,"gates_broken":4,"boss_armor":0,"gold":343,"skills":["launchForce","impact","retention","gatePen","perfectBoost","comboDamage","speedCap"],"world_complete":true}
+    ]
+  }
+}
