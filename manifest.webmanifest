@@ -1,0 +1,13 @@
+{
+  "name": "Prism Rush: Breakpoint",
+  "short_name": "Breakpoint",
+  "description": "A one-touch momentum roguelite built for mobile landscape play.",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#07051a",
+  "theme_color": "#171147",
+  "icons": [
+    {"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
