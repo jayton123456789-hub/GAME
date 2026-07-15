@@ -3,10 +3,12 @@ name: Deploy Prism Rush to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - DEPLOYED.txt
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -34,3 +36,20 @@ jobs:
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify live game
+        run: |
+          for attempt in {1..24}; do
+            if curl -fsSL "https://jayton123456789-hub.github.io/GAME/" | grep -q "Prism Rush: Breakpoint"; then
+              printf "Prism Rush GitHub Pages deployment verified.\nhttps://jayton123456789-hub.github.io/GAME/\n" > DEPLOYED.txt
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
+      - name: Record successful deployment
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DEPLOYED.txt
+          git diff --cached --quiet || git commit -m "Verify live Prism Rush site [skip ci]"
+          git push
