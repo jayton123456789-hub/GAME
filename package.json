@@ -1,0 +1,12 @@
+{
+  "name": "prism-rush-breakpoint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playable Neon Expanse vertical slice of Prism Rush: Breakpoint.",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "test": "python3 tests/playtest.py",
+    "test:balance": "python3 tests/balance_probe.py",
+    "test:all": "python3 tests/playtest.py && python3 tests/balance_probe.py"
+  }
+}
