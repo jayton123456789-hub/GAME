@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "start_x": 170,
+  "mid_x": 577.0,
+  "peak_speed": 463.2,
+  "boss_armor_before": 2296,
+  "boss_armor_after": 1498,
+  "screenshots": [
+    "01-hub.png",
+    "02-skill-tree.png",
+    "03-gameplay.png",
+    "04-perk-machine.png",
+    "05-final-approach.png",
+    "06-summary.png",
+    "07-mobile-landscape.png"
+  ]
+}
