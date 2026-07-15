@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#07051a" />
+  <meta name="description" content="Prism Rush: Breakpoint — a one-touch momentum roguelite." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Prism Rush: Breakpoint</title>
+</head>
+<body>
+  <div id="app" aria-label="Prism Rush: Breakpoint">
+    <canvas id="game" aria-label="Game canvas"></canvas>
+
+    <div id="rotatePrompt" class="rotate-prompt" aria-hidden="true">
+      <div class="rotate-card">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><path d="M22 72a40 40 0 0 1 69-27l8-9v29H70l9-9A24 24 0 0 0 38 72z"/><rect x="33" y="70" width="54" height="31" rx="8"/></svg>
+        <strong>Rotate to landscape</strong>
+        <span>Breakpoint is tuned for wide-screen play.</span>
+      </div>
+    </div>
+
+    <section id="hub" class="screen active" aria-label="Main hub">
+      <div class="hub-sky"></div>
+      <div class="hub-topbar glass">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div>
+            <div class="eyebrow">NEON EXPANSE // WORLD 01</div>
+            <h1>PRISM RUSH <em>BREAKPOINT</em></h1>
+          </div>
+        </div>
+        <div class="currency-cluster">
+          <div class="currency gold"><span class="coin-icon">◆</span><b id="hubGold">0</b></div>
+          <div class="currency core"><span class="core-icon">⬢</span><b id="hubCores">0</b></div>
+          <button class="icon-button" id="settingsBtn" aria-label="Settings"><img src="assets/icons/settings.svg" alt=""/></button>
+        </div>
+      </div>
+
+      <div class="hub-content">
+        <article class="hero-panel glass">
+          <div class="boss-orbit" aria-hidden="true">
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+            <div class="boss-mini"><span></span><span></span><span></span><i></i></div>
+          </div>
+          <div class="hero-copy">
+            <div class="world-chip"><span></span>PRISM BULWARK</div>
+            <h2>Build momentum.<br/><em>Break the machine.</em></h2>
+            <p>Hold to dive. Release to launch. Chain perfect landings into a three-pass boss strike.</p>
+            <div class="hero-stats">
+              <div><span>BEST DISTANCE</span><b id="bestDistance">0 m</b></div>
+              <div><span>BEST COMBO</span><b id="bestCombo">x0</b></div>
+              <div><span>BOSS CORE</span><b id="bossProgress">LOCKED</b></div>
+            </div>
+          </div>
+          <button id="playBtn" class="play-button magnetic">
+            <span class="play-icon">▶</span>
+            <span><b>LAUNCH RUN</b><small>Seeded route · 3 perk picks · boss finale</small></span>
+            <i>SPACE</i>
+          </button>
+        </article>
+
+        <nav class="hub-grid" aria-label="Game features">
+          <button class="nav-card glass" data-panel="skills">
+            <img src="assets/icons/skill-tree.svg" alt="" />
+            <span><b>SKILL TREE</b><small>20 permanent upgrades</small></span>
+            <i id="skillAffordable">0 READY</i>
+          </button>
+          <button class="nav-card glass" data-panel="worlds">
+            <img src="assets/icons/worlds.svg" alt="" />
+            <span><b>WORLD MAP</b><small>Neon Expanse campaign</small></span>
+            <i>01 / 05</i>
+          </button>
+          <button class="nav-card glass" data-panel="collection">
+            <img src="assets/icons/collection.svg" alt="" />
+            <span><b>PRISM SHELLS</b><small>Ball cores & trails</small></span>
+            <i id="shellCount">1 / 4</i>
+          </button>
+          <button class="nav-card glass" data-panel="records">
+            <img src="assets/icons/records.svg" alt="" />
+            <span><b>RECORDS</b><small>Run history & challenges</small></span>
+            <i id="runCount">0 RUNS</i>
+          </button>
+        </nav>
+      </div>
+
+      <div class="control-hint glass"><span class="hold-dot"></span><b>HOLD</b> to dive & cling <span class="divider"></span><span class="release-icon">↥</span><b>RELEASE</b> to launch</div>
+    </section>
+
+    <section id="gameHud" class="game-hud" aria-hidden="true">
+      <div class="hud-top">
+        <button id="pauseBtn" class="icon-button compact" aria-label="Pause"><span>Ⅱ</span></button>
+        <div class="progress-shell glass">
+          <div class="progress-labels"><span>LAUNCH</span><span>SECTOR 1</span><span>GATE</span><span>SECTOR 2</span><span>GATE</span><span>SECTOR 3</span><span>FINAL</span><span>BOSS</span></div>
+          <div class="progress-track"><div id="progressFill"></div><div id="progressMarker"></div></div>
+        </div>
+        <div class="hud-currency glass"><span>◆</span><b id="runGold">0</b></div>
+      </div>
+      <div class="hud-left">
+        <div class="speed-gauge glass"><span>SPEED</span><b id="speedValue">0</b><i>KM/H</i><div class="speed-bar"><div id="speedFill"></div></div></div>
+        <div id="perkStrip" class="perk-strip"></div>
+      </div>
+      <div class="hud-right">
+        <div id="comboHud" class="combo-hud"><span id="landingGrade">FLOW</span><b id="comboValue">x0</b></div>
+        <div id="forecastHud" class="forecast glass"><span>ESTIMATED STRIKE</span><b id="forecastValue">0</b></div>
+      </div>
+      <div class="touch-instruction" id="touchInstruction"><b>HOLD</b> TO DIVE · <b>RELEASE</b> AT THE VALLEY</div>
+    </section>
+
+    <div id="perkOverlay" class="overlay" aria-hidden="true">
+      <div class="overlay-backdrop"></div>
+      <div class="perk-machine-panel">
+        <div class="machine-header"><span>BREAKER CHIP CONSUMED</span><h2>CHOOSE A RUN MODIFIER</h2><p>Your route resumes immediately after selection.</p></div>
+        <div id="perkChoices" class="perk-choices"></div>
+        <button id="rerollBtn" class="secondary-button"><img src="assets/icons/reroll.svg" alt=""/>REROLL CHOICES <span id="rerollCount">0</span></button>
+      </div>
+    </div>
+
+    <div id="gateOverlay" class="gate-callout" aria-hidden="true">
+      <span id="gateLabel">GATE 01</span><b id="gateHealthText">100%</b><div><i id="gateHealthFill"></i></div>
+    </div>
+
+    <div id="bossHud" class="boss-hud" aria-hidden="true">
+      <div class="boss-title"><span>WORLD BOSS</span><b>THE PRISM BULWARK</b><i id="bossPassLabel">PASS 1 / 3</i></div>
+      <div class="boss-bars glass">
+        <div><span>OUTER ARMOR</span><i><b id="armorBar"></b></i><em id="armorText">100%</em></div>
+        <div><span>RUN SHIELD</span><i><b id="shieldBar"></b></i><em id="shieldText">100%</em></div>
+        <div><span>CORE</span><i><b id="coreBar"></b></i><em id="coreText">100%</em></div>
+      </div>
+    </div>
+
+    <div id="pauseOverlay" class="overlay" aria-hidden="true">
+      <div class="overlay-backdrop"></div>
+      <div class="modal glass pause-modal">
+        <span class="eyebrow">RUN SUSPENDED</span>
+        <h2>PAUSED</h2>
+        <button id="resumeBtn" class="primary-button">RESUME RUN</button>
+        <button id="restartBtn" class="secondary-button">RESTART RUN</button>
+        <button id="quitBtn" class="text-button">RETURN TO HUB</button>
+      </div>
+    </div>
+
+    <div id="summaryOverlay" class="overlay" aria-hidden="true">
+      <div class="overlay-backdrop summary-bg"></div>
+      <div class="summary-panel glass">
+        <div id="summaryKicker" class="eyebrow">RUN COMPLETE</div>
+        <h2 id="summaryTitle">MOMENTUM LOST</h2>
+        <p id="summarySubtitle">The route remembers every fracture.</p>
+        <div class="summary-score">
+          <div><span>DISTANCE</span><b id="summaryDistance">0 m</b><i id="distanceRecord"></i></div>
+          <div><span>GOLD BANKED</span><b id="summaryGold">0</b><i id="goldBreakdown"></i></div>
+          <div><span>BEST COMBO</span><b id="summaryCombo">x0</b><i id="comboRecord"></i></div>
+          <div><span>BOSS DAMAGE</span><b id="summaryDamage">0</b><i id="damageBreakdown"></i></div>
+        </div>
+        <div class="summary-upgrades"><span id="upgradeAdvice">UPGRADE AVAILABLE</span><div id="adviceNodes"></div></div>
+        <div class="summary-actions">
+          <button id="againBtn" class="primary-button">LAUNCH AGAIN <small>SPACE</small></button>
+          <button id="summarySkillsBtn" class="secondary-button">OPEN SKILL TREE</button>
+          <button id="summaryHubBtn" class="text-button">RETURN TO HUB</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="panelOverlay" class="panel-overlay" aria-hidden="true">
+      <div class="panel-shell glass">
+        <header><button id="panelBack" class="icon-button compact" aria-label="Back">←</button><div><span class="eyebrow" id="panelEyebrow">SYSTEM</span><h2 id="panelTitle">PANEL</h2></div><div class="panel-wallet"><span>◆</span><b id="panelGold">0</b></div></header>
+        <div id="panelContent" class="panel-content"></div>
+      </div>
+    </div>
+
+    <div id="toastLayer" class="toast-layer" aria-live="polite"></div>
+  </div>
+  <script defer src="src/main.js"></script>
+</body>
+</html>
