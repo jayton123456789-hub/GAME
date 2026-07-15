@@ -1,4 +1,4 @@
-name: Deploy Prism Rush to GitHub Pages
+name: Verify Prism Rush GitHub Pages
 
 on:
   push:
@@ -9,36 +9,20 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
-  group: github-pages
+  group: verify-github-pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Check out game
         uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy site
-        id: deployment
-        uses: actions/deploy-pages@v4
       - name: Verify live game
         run: |
-          for attempt in {1..24}; do
+          for attempt in {1..60}; do
             if curl -fsSL "https://jayton123456789-hub.github.io/GAME/" | grep -q "Prism Rush: Breakpoint"; then
               printf "Prism Rush GitHub Pages deployment verified.\nhttps://jayton123456789-hub.github.io/GAME/\n" > DEPLOYED.txt
               exit 0
